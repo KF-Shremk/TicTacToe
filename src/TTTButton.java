@@ -10,23 +10,34 @@ import javax.swing.*;
 
 public class TTTButton extends JButton{
     //instance variables
-    int gridVal;    //the positional value of the button in the TTT grid (1-9, left to right top to bottom)
+    int row;    //the row that the button is in
+    int col;     //the column that the button is in
 
     /**Constructor for TTTButton object
        * @param text The text on the button
-       * @param val The grid value of the button
+       * @param aRow The row fo the button
+       * @param aColumn The column of the button
        */
-    public TTTButton (String text, int val)
+    public TTTButton (String text, int aRow, int aColumn)
     {
         super(text);
-        this.gridVal = val;
+        this.row = aRow;
+        this.col = aColumn;
     }
 
-    /**Accessor for gridVal
-     * @return The grid value of the button
+    /**
+     * @return The row of the button
      */
-    public int getVal ()
+    public int getRow ()
     {
-        return this.gridVal;
+        return this.row;
+    }
+
+    /**
+     * @return The column of the button
+     */
+    public int getCol ()
+    {
+        return this.col;
     }
 }

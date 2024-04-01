@@ -30,7 +30,7 @@ public class MoveController implements ActionListener
      public void actionPerformed (ActionEvent e)
      {
           // System.out.println(this.button.getVal()); //debug
-          this.model.processMove(this.button.getVal());
+          this.model.processMove(this.button.getRow(),this.button.getCol());
      } //End of actionPerformed method
      
 } //MoveController class

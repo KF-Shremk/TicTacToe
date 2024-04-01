@@ -11,20 +11,19 @@
     public class ModelTTT extends Object {
         
         //Instance Variables
-        private GUITTT view;                      //The view attatched to the model
-        private int [][] values = new int [3][3];  //Stores values of all spots in the grid, 0 = none, 1 = player 1, 2 = player 2
+        private GUITTT view;                        //The view attatched to the model
+        private int [][] values = new int [3][3];   //Stores values of all spots in the grid, 0 = none, 1 = player 1, 2 = player 2
         
-        private boolean p1win = false;               //Stores if the game has been won
+        private boolean p1win = false;              //Stores if the game has been won
         private boolean p2win = false;              //Stores if the game has been lost
-        private int turn = 1;               //stores whose turn it is (false is p1, true is p2)
+        private int turn = 1;                       //stores whose turn it is (false is p1, true is p2)
 
-        private int turnCount = 0;
+        private int turnCount = 0;                  //Stores the total number of turns completed
         
         /**Constructor for the model; loads the leaderboard and creates a new value on the grid
          */
         public ModelTTT (){
             super ();
-            // this.resetGame();
         } //end of constructor
         
         /**Sets the GUI of the model.
@@ -98,85 +97,23 @@
             return this.turnCount;
         } //end of getLossState method   
         
-        //---------------------------------------------------------------------------------------------------MOVE PROCESSING METHODS
+        //---------------------------------------------------------------------------------------------------GAME ALGORITHMS
         
         /**Processes the move made by the players
-         * @param move the spot on the grid to update (integers 1-9 representing 3x3 grid locations, left to right top to bottom)
+         * @param row the row of the button to update
+         * @param col the column of the button to update
          */
-        public void processMove (int move) {
-            boolean changed = false;
-            switch (move) {
-                case 1:
-                    if (this.values[0][0] == 0) {
-                        this.values[0][0] = this.turn;
-                        changed = true;
-                    }
-                    break;
-                case 2:
-                    if (this.values[0][1] == 0) {
-                        this.values[0][1] = this.turn;
-                        changed = true;
-                    }
-                    break;
-                case 3:
-                    if (this.values[0][2] == 0) {
-                        this.values[0][2] = this.turn;
-                        changed = true;
-                    }
-                    break;
-                case 4:
-                    if (this.values[1][0] == 0) {
-                        this.values[1][0] = this.turn;
-                        changed = true;
-                    }
-                    break;
-                case 5:
-                    if (this.values[1][1] == 0) {
-                        this.values[1][1] = this.turn;
-                        changed = true;
-                    }
-                    break;
-                case 6:
-                    if (this.values[1][2] == 0) {
-                        this.values[1][2] = this.turn;
-                        changed = true;
-                    }
-                    break;
-                case 7:
-                    if (this.values[2][0] == 0) {
-                        this.values[2][0] = this.turn;
-                        changed = true;
-                    }
-                    break;
-                case 8:
-                    if (this.values[2][1] == 0) {
-                        this.values[2][1] = this.turn;
-                        changed = true;
-                    }
-                    break;
-                case 9:
-                    if (this.values[2][2] == 0) {
-                        this.values[2][2] = this.turn;
-                        changed = true;
-                    }
-                    break;
-                default:
-                    System.out.print("error");
-                    System.exit(1);
-            }
-
-            if (changed) {
+        public void processMove (int row, int col) {
+            if (this.values[row][col] == 0) {
+                this.values[row][col] = this.turn;
                 this.turn = (this.turn == 1) ? 2 : 1;
                 this.turnCount++;
             }
-            // System.out.println(this.turn); //debug
 
             this.checkWinState();
 
             this.updateView();
         } //end of processMove method 
-        
-        //---------------------------------------------------------------------------------------------------WIN / LOSS DETERMINATION
         
         /**Determines if Tic Tac Toe has been won
          */

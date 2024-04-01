@@ -18,7 +18,7 @@ public static void main (String [] args) throws IOException
      GUITTT main = new GUITTT(model);  //The 2048 view
      
      //Initialize the Frame
-     JFrame f = new JFrame("Kevin Fu's Tic Tac Toe");
+     JFrame f = new JFrame("Kevin's Tic Tac Toe");
      f.setSize(500,540);
      f.setLocation(250,25);
      f.setResizable(false);
