@@ -17,6 +17,7 @@ public class MoveController implements ActionListener
      
      /**Constructor for MoveController object
        * @param aModel The model the controller is attatched to
+       * @param aButton The button being assigned the controller
        */
      public MoveController (ModelTTT aModel, TTTButton aButton)
      {

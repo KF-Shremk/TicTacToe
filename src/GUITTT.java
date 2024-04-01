@@ -41,6 +41,7 @@ public class GUITTT extends JPanel
      private void layoutView()
      {
           newGame.setEnabled(false);
+          newGame.setFocusable(false);
           gridPanel.setLayout(gridLay);
           gridLay.setHgap(10);              
           gridLay.setVgap(10);
@@ -120,6 +121,8 @@ public class GUITTT extends JPanel
                }
                newGame.setEnabled(true);
           }
+
+          this.requestFocus();
      }//End of update method
      
 }//End of GUITTT class

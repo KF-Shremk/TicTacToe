@@ -11,17 +11,16 @@ import java.awt.event.*;
 public class NewGameController implements ActionListener
 {
      //instance variables
-     private ModelTTT model;        //The model attached to the controller
-     private JButton reset;      //The OK button with the users input
-     private TTTButton [][] grid;    //The grid for tic tac toe
-     private JLabel label;           //the game text
+     private ModelTTT model;            //The model attached to the controller
+     private JButton reset;             //The new game buttont
+     private TTTButton [][] grid;       //The grid for tic tac toe
+     private JLabel label;              //the game text
      
      /**Constructor for NewGameController object
-       * @param aModel ---------- The model the controller is attatched to
-       * @param aUserDataPanel -- The panel with the users information
-       * @param aUserInput ------ The button pressed after user inputs data
-       * @param sStatus --------- The win/loss status of the game
-       * @param aPane ----------- The Tabbed Pane with the leaderboard and results
+       * @param aModel The model the controller is attatched to
+       * @param aReset The new game button
+       * @param aGrid The grid tic tac toe buttons
+       * @param aLabel The game text label
        */
      public NewGameController (ModelTTT aModel, JButton aReset, TTTButton[][] aGrid, JLabel aLabel)
      {
